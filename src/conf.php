@@ -8,7 +8,11 @@ $config = array(
         "password" => "",
         "db_name" => "webprog2_beadando",
         "charset" => "utf8"
-    )
+    ),
+    "auth" => array(
+        "default_role" => 1
+    ),
+    "root_dir" => $_SERVER["DOCUMENT_ROOT"]
 );
 
 function getConfig() {

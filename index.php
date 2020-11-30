@@ -1,10 +1,12 @@
 <?php
 //Import
 require("src/conf.php");
-require("src/db.php");
-require("src/navigator.php");
-require("src/contentmanager.php");
+require("src/db/class.pagedatabase.php");
+require("src/db/class.authdatabase.php");
+require("src/class.navigator.php");
+require("src/class.contentmanager.php");
 
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="hu">
@@ -39,7 +41,6 @@ $nav = new Navigator();
         <?php
         $nav->navbar();
         $contentManager = new ContentManager();
-
         ?>
     </div>
     <div id="footer" class="text-center">

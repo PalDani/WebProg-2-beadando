@@ -20,16 +20,16 @@ class Navigator {
     }
 
     public function navbar() {
-        $pages = Database::getPages();
+        $pages = PageDatabase::getPages();
 
         $pageHtml = array('<ul class="nav nav-tabs">');
 
         //var_dump($pages);
         foreach($pages as $page) {
-            $isRoot = Database::isRootMenu($page["Id"]);
+            $isRoot = PageDatabase::isRootMenu($page["Id"]);
             
             if($isRoot) {
-                $submenus = Database::getPagesByParent($page["Id"]);
+                $submenus = PageDatabase::getPagesByParent($page["Id"]);
 
                 if(is_array($submenus) && sizeof($submenus) > 0) {
                     $submenuHtml = '<li class="nav-item dropdown"><a class="nav-link dropdown-toggle" data-toggle="dropdown"

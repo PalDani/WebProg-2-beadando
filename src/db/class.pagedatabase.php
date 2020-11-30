@@ -1,27 +1,8 @@
 <?php
 
-//require("conf.php");
+require_once("class.database.php");
 
-class Database {
-    
-    private static function getDb() {
-        try {
-            $host = getConfig()["database"]["host"];
-            $port = getConfig()["database"]["port"];
-            $user = getConfig()["database"]["username"];
-            $pass = getConfig()["database"]["password"];
-            $dbname = getConfig()["database"]["db_name"];
-
-            $pdo = new PDO("mysql:host=$host;port=$port;dbname=$dbname", $user, $pass);
-            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $pdo->exec("set names utf8");
-            
-            return $pdo;
-        } catch(PDOException $ex) {
-            echo "Connection failed: " . $ex->getMessage();
-        }
-    }
-
+class PageDatabase extends Database {
     public static function getPages() {
         $result = array();
 
@@ -29,8 +10,8 @@ class Database {
 
         $statement = $db->prepare("SELECT * FROM menu");
         $statement->execute();
-
         $statement->setFetchMode(PDO::FETCH_ASSOC);
+        
         while($page = $statement->fetch()) {
             array_push($result, $page);
         }
@@ -104,7 +85,6 @@ class Database {
         
         return $result["Res"] == 1 ? true : false;
     }
-
 }
 
 ?>
