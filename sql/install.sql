@@ -21,8 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `webprog2_beadando`
 --
-CREATE DATABASE IF NOT EXISTS `webprog2_beadando` DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
-USE `webprog2_beadando`;
+CREATE DATABASE IF NOT EXISTS `aj4vr0` DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
+USE `aj4vr0`;
 
 -- --------------------------------------------------------
 

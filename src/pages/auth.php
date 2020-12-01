@@ -35,8 +35,8 @@ if(!isset($_SESSION["user_data"])) {
         <div class="p-2 text-center"><h2>Belépés</h2></div>
             <form method="post">
                 <input type="hidden" name="auth_type" id="auth_type" value="log">
-                <div class="p-2"><input type="text" placeholder="Felhasználónév/E-mail" name="username" id="username" required></div>
-                <div class="p-2"><input type="password" placeholder="Jelszó" name="password" id="password" required></div>
+                <div class="p-2"><input type="text" placeholder="Felhasználónév/E-mail" name="username" id="username" required maxlength="32"></div>
+                <div class="p-2"><input type="password" placeholder="Jelszó" name="password" id="password" required maxlength="32"></div>
                 <div class="p-2"><input type="submit" value="Belépés"></div>
             </form>
         </div>
@@ -44,10 +44,10 @@ if(!isset($_SESSION["user_data"])) {
         <div class="p-2 text-center"><h2>Regisztráció</h2></div>
             <form method="post" onsubmit="return rpassword.value == rpassword_again.value;">
                 <input type="hidden" name="auth_type" id="auth_type" value="reg">
-                <div class="p-2"><input type="text" placeholder="Felhasználónév" name="rusername" id="rusername" required></div>
-                <div class="p-2"><input type="email" placeholder="E-mail" required name="remail" id="remail"></div>
-                <div class="p-2"><input type="password" placeholder="Jelszó" name="rpassword" id="rpassword" required></div>
-                <div class="p-2"><input type="password" placeholder="Jelszó mégegyszer" name="rpassword_again" id="rpassword_again" required></div>
+                <div class="p-2"><input type="text" placeholder="Felhasználónév" name="rusername" id="rusername" required maxlength="32"></div>
+                <div class="p-2"><input type="email" placeholder="E-mail" required name="remail" id="remail" maxlength="128"></div>
+                <div class="p-2"><input type="password" placeholder="Jelszó" name="rpassword" id="rpassword" required maxlength="32"></div>
+                <div class="p-2"><input type="password" placeholder="Jelszó mégegyszer" name="rpassword_again" id="rpassword_again" required maxlength="32"></div>
                 <div class="p-2"><input type="submit" value="Regisztráció"></div>
             </form>
         </div>

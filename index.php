@@ -36,7 +36,7 @@ $nav = new Navigator();
 ?>
 <body>
     <div id="header" class='text-center'>
-        <h1>Cégnév</h1>
+        <h1>IT 101</h1>
     </div>
     <div class="container" id="pagecontainer">
         <?php
@@ -46,10 +46,10 @@ $nav = new Navigator();
     </div>
     <div id="footer" class="text-center">
         <?php
-            echo date("Y") . "@Cégnév";
+            echo date("Y") . "@IT101 Kft.";
 
             if(isset($_SESSION["user_data"])) {
-                echo "<a href='session_destroy.php'>Kilépés</a>";
+                echo " | <a href='session_destroy.php'>Kilépés</a>";
             }
         ?>
     </div>

@@ -6,13 +6,13 @@ $config = array(
         "port" => "3306",
         "username" => "root",
         "password" => "",
-        "db_name" => "webprog2_beadando",
+        "db_name" => "aj4vr0",
         "charset" => "utf8"
     ),
     "auth" => array(
         "default_role" => 1
     ),
-    "root_dir" => $_SERVER["DOCUMENT_ROOT"] . "/webprog2_beadando" //KI KELL VENNI MAJD ELKÜLDÉS ELŐTT
+    "root_dir" => $_SERVER["DOCUMENT_ROOT"]
 );
 
 function getConfig() {

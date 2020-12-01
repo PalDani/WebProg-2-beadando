@@ -48,7 +48,7 @@ if(isset($_SESSION["user_data"]) && $_SESSION["user_data"]["Role"] >= 2) {
         if(isset($_SESSION["user_data"])&& $_SESSION["user_data"]["Role"] >= 1) {
             echo "<hr>";
             echo '<div class="d-flex flex-column align-items-center border border-primary rounded"><form method="post"><input type="hidden" name="comment_post_id" id="comment_post_id" value="' . $post["Id"] . '"';
-            echo '<div class="p-2"><textarea class="postwriter" name="comment_content" id="comment_content" placeholder="Poszt tartalma" required></textarea></div>';
+            echo '<div class="p-2"><textarea class="postwriter" name="comment_content" id="comment_content" placeholder="Komment tartalma" required></textarea></div>';
             echo '<div class="p-2"><input type="submit" value="Létrehoz"></div>';
             echo '</form></div>';
         }
