@@ -1,6 +1,31 @@
 body {
-    width: 75%;
+    width: 50%;
     margin: auto;
+    margin-top: 5vh;
     border: 1.5px solid black;
     border-radius: 5px;
+    height: 80vh;
+    min-height: 80vh;
+}
+
+.padded {
+    padding: 15px;
+}
+
+#pagecontainer {
+    height: 70vh;
+}
+
+.post {
+    width: 75%;
+    margin: auto;
+    margin-top: 1vh;
+}
+
+.postwriter {
+    width: 100%;
+}
+
+.paginator {
+    margin-top: 3vh;
 }

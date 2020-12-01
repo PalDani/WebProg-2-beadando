@@ -7,15 +7,15 @@ class AuthDatabase extends Database {
     public static function userLogin($username, $password) {
         $db = Database::getDb();
 
-        $statement = $db->prepare("SELECT COUNT(Id) FROM user WHERE Username = ? OR Email = ? AND password = ?");
+        $statement = $db->prepare("SELECT COUNT(Id) AS Res FROM user WHERE Username = ? OR Email = ? AND password = ?");
         $statement->execute([$username, $username, md5($password)]);
         $statement->setFetchMode(PDO::FETCH_ASSOC);
 
         $result = $statement->fetch();
 
         $db = null;
-        if($result == 1) {
-            $_SESSION["userData"] = AuthDatabase::getUserByUsername($username);
+        if($result["Res"] == 1) {
+            $_SESSION["user_data"] = AuthDatabase::getUserByUsername($username);
             return true;
         } else return false;
     }
@@ -67,9 +67,22 @@ class AuthDatabase extends Database {
         $statement = $db->prepare("SELECT Id, Username, Email, Role FROM user WHERE Username = ?");
         $statement->execute([$username]);
         $statement->setFetchMode(PDO::FETCH_ASSOC);
-
+        
         $result = $statement->fetch();
+        
+        $db = null;
+        return $result;
+    }
 
+    public static function getUserById($id) {
+        $db = Database::getDb();
+
+        $statement = $db->prepare("SELECT Id, Username, Email, Role FROM user WHERE Id = ?");
+        $statement->execute([$id]);
+        $statement->setFetchMode(PDO::FETCH_ASSOC);
+        
+        $result = $statement->fetch();
+        
         $db = null;
         return $result;
     }

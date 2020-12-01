@@ -12,7 +12,7 @@ $config = array(
     "auth" => array(
         "default_role" => 1
     ),
-    "root_dir" => $_SERVER["DOCUMENT_ROOT"]
+    "root_dir" => $_SERVER["DOCUMENT_ROOT"] . "/webprog2_beadando" //KI KELL VENNI MAJD ELKÜLDÉS ELŐTT
 );
 
 function getConfig() {

@@ -1,3 +1,6 @@
+<?php
+ImportManager::load("src/db/class.authdatabase.php");
+?>
 <!DOCTYPE html>
 <html lang="hu">
 <head>
@@ -25,30 +28,36 @@ if(isset($_POST["auth_type"])) {
     }
 }
 
-?>
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <h2 class="text-center">Belépés</h2>
-                <form method="post">
-                    <input type="hidden" name="auth_type" id="auth_type" value="log">
-                    <input type="text" placeholder="Felhasználónév/E-mail" name="username" id="username" required>
-                    <input type="password" placeholder="Jelszó" name="password" id="password" required>
-                    <input type="submit" value="Belépés">
-                </form>
-            </div>
-            <div class="col">
-                <h2 class="text-center">Regisztráció</h2>
-                <form method="post" onsubmit="return rpassword.value == rpassword_again.value;">
-                    <input type="hidden" name="auth_type" id="auth_type" value="reg">
-                    <input type="text" placeholder="Felhasználónév" name="rusername" id="rusername" required>
-                    <input type="email" placeholder="E-mail" required name="remail" id="remail">
-                    <input type="password" placeholder="Jelszó" name="rpassword" id="rpassword" required>
-                    <input type="password" placeholder="Jelszó mégegyszer" name="rpassword_again" id="rpassword_again" required>
-                    <input type="submit" value="Regisztráció">
-                </form>
-            </div>
+if(!isset($_SESSION["user_data"])) {
+    echo '<div class="container">
+    <div class="row">
+        <div class="col d-flex flex-row justify-content-md-center border">
+        <div class="p-2 text-center"><h2>Belépés</h2></div>
+            <form method="post">
+                <input type="hidden" name="auth_type" id="auth_type" value="log">
+                <div class="p-2"><input type="text" placeholder="Felhasználónév/E-mail" name="username" id="username" required></div>
+                <div class="p-2"><input type="password" placeholder="Jelszó" name="password" id="password" required></div>
+                <div class="p-2"><input type="submit" value="Belépés"></div>
+            </form>
+        </div>
+        <div class="col d-flex flex-row justify-content-md-center border">
+        <div class="p-2 text-center"><h2>Regisztráció</h2></div>
+            <form method="post" onsubmit="return rpassword.value == rpassword_again.value;">
+                <input type="hidden" name="auth_type" id="auth_type" value="reg">
+                <div class="p-2"><input type="text" placeholder="Felhasználónév" name="rusername" id="rusername" required></div>
+                <div class="p-2"><input type="email" placeholder="E-mail" required name="remail" id="remail"></div>
+                <div class="p-2"><input type="password" placeholder="Jelszó" name="rpassword" id="rpassword" required></div>
+                <div class="p-2"><input type="password" placeholder="Jelszó mégegyszer" name="rpassword_again" id="rpassword_again" required></div>
+                <div class="p-2"><input type="submit" value="Regisztráció"></div>
+            </form>
         </div>
     </div>
+</div>';
+} else {
+    echo '<div class="alert alert-info" role="alert">Ön már be van lépve! (<a href="session_destroy.php">Kilépés</a>)</div>';
+}
+
+?>
+    
 </body>
 </html>

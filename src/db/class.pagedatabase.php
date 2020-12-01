@@ -71,7 +71,7 @@ class PageDatabase extends Database {
         $result = $statement->fetch();
         $db = null;
 
-        return $result["Res"] == 1 ? true : false;
+        return $result["Res"] == 1;
     }
 
     public static function pageExists($id) {
@@ -83,7 +83,7 @@ class PageDatabase extends Database {
         $result = $statement->fetch();
         $db = null;
         
-        return $result["Res"] == 1 ? true : false;
+        return $result["Res"] == 1;
     }
 }
 

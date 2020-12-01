@@ -11,7 +11,7 @@ class Navigator {
     public function __construct() {
         if(!isset($_GET["page"]) || $_GET["page"] == "") {
             //goTo("front");
-            echo "<script>Navigator.goTo('asd')</script>";
+            echo "<script>Navigator.goTo('1')</script>";
         }
     }
 
@@ -22,7 +22,7 @@ class Navigator {
     public function navbar() {
         $pages = PageDatabase::getPages();
 
-        $pageHtml = array('<ul class="nav nav-tabs">');
+        $pageHtml = array('<hr><ul class="nav nav-tabs">');
 
         //var_dump($pages);
         foreach($pages as $page) {

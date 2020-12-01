@@ -1,10 +1,11 @@
 <?php
 //Import
 require("src/conf.php");
-require("src/db/class.pagedatabase.php");
-require("src/db/class.authdatabase.php");
-require("src/class.navigator.php");
-require("src/class.contentmanager.php");
+require("src/class.importmanager.php");
+
+ImportManager::load("src/db/class.pagedatabase.php");
+ImportManager::load("src/class.navigator.php");
+ImportManager::load("src/class.contentmanager.php");
 
 session_start();
 ?>
@@ -37,14 +38,20 @@ $nav = new Navigator();
     <div id="header" class='text-center'>
         <h1>Cégnév</h1>
     </div>
-    <div id="container">
+    <div class="container" id="pagecontainer">
         <?php
         $nav->navbar();
         $contentManager = new ContentManager();
         ?>
     </div>
     <div id="footer" class="text-center">
-        <?php echo date("Y") . "@Cégnév" ?>
+        <?php
+            echo date("Y") . "@Cégnév";
+
+            if(isset($_SESSION["user_data"])) {
+                echo "<a href='session_destroy.php'>Kilépés</a>";
+            }
+        ?>
     </div>
 </body>
 </html>
